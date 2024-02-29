@@ -8,13 +8,8 @@ file_path = "C:/Users/jackm/OneDrive - Queen's University/Queen's Engineering/Fo
 file_path_2 = "C:/Users/jackm/OneDrive - Queen's University/Queen's Engineering/Fourth Year/ENPH 453/Advanced-Engineering-Physics-Lab/Semiconductor_Bandgap_Measurements/Feb15_Testing/Temp_Sweep_2.csv"
 
 # Read the CSV, skipping the initial incorrect header and split the 'Temperature,Resistance' combined column
-data = pd.read_csv(file_path, skiprows=1, header=None, names=['Temperature', 'Resistance'])
-data[['Temperature', 'Resistance']] = data['Temperature'].str.split(',', expand=True)
+data = pd.read_csv(file_path, skiprows=1)
 
-# Remove any non-numeric rows and convert columns to numeric types
-data = data[data['Temperature'].apply(lambda x: x.replace('.', '', 1).isdigit())]
-data['Temperature'] = pd.to_numeric(data['Temperature'])
-data['Resistance'] = pd.to_numeric(data['Resistance'])
 
 # Plotting
 plt.figure(figsize=(10, 6))
@@ -34,15 +29,8 @@ print("Average Resistance:", average_resistance)
 
 
 #%%
-data = pd.read_csv(file_path_2, skiprows=1, header=None, names=['Temperature', 'Resistance'])
-data[['Temperature', 'Resistance']] = data['Temperature'].str.split(',', expand=True)
+data = pd.read_csv(file_path_2, skiprows=1)
 
-# Remove any non-numeric rows and convert columns to numeric types
-data = data[data['Temperature'].apply(lambda x: x.replace('.', '', 1).isdigit())]
-data['Temperature'] = pd.to_numeric(data['Temperature'])
-data['Resistance'] = pd.to_numeric(data['Resistance'])
-
-# Plotting
 plt.figure(figsize=(10, 6))
 plt.scatter(data['Temperature'], data['Resistance'], color='blue', alpha=0.5)
 plt.title('Resistance vs. Temperature')
