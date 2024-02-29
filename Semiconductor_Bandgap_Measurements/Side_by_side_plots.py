@@ -22,7 +22,7 @@ def process_and_plot(csv_path, label):
         max_temp = data_csv['Temperature'].max()
 
         # Plot a rectangle for one standard deviation of the resistance
-     #   plt.gca().add_patch(plt.Rectangle((min_temp, lower_bound), max_temp - min_temp, 2*std_dev, color='green', alpha=0.1))
+        plt.gca().add_patch(plt.Rectangle((min_temp, lower_bound), max_temp - min_temp, 2*std_dev, color='green', alpha=0.1))
 
     except Exception as e:
         print(f"Error processing file {csv_path}: {e}")
