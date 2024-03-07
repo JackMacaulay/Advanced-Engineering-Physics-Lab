@@ -14,16 +14,7 @@ def process_and_plot(csv_path, label):
         # Plot the data
         plt.scatter(data_csv['Temperature'], data_csv['Resistance'], label=label, alpha=0.75)
         
-        lower_bound = mean_resistance - std_dev
-        upper_bound = mean_resistance + std_dev
-
-        # Find min and max temperature for the width of the square
-        min_temp = data_csv['Temperature'].min()
-        max_temp = data_csv['Temperature'].max()
-
-        # Plot a rectangle for one standard deviation of the resistance
-        plt.gca().add_patch(plt.Rectangle((min_temp, lower_bound), max_temp - min_temp, 2*std_dev, color='green', alpha=0.1))
-
+        
     except Exception as e:
         print(f"Error processing file {csv_path}: {e}")
 
