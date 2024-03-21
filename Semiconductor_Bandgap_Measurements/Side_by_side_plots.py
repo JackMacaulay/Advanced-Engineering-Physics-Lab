@@ -41,8 +41,8 @@ for path, label in csv_files:
     process_and_plot(path, label)
 
 # Finalize plot
-plt.title('Resistance vs. Temperature all Trials Sample 1')
-plt.ylim(-2000, 2000)
+plt.title('Resistance vs. Temperature Multiple Trials')
+
 plt.xlabel('Temperature (K)')
 plt.ylabel('Resistance (Ohms)')
 plt.legend()
