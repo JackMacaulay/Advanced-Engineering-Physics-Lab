@@ -8,11 +8,12 @@ Created on Thu Feb 29 16:40:44 2024
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-plt.style.use('seaborn-whitegrid')  # A clean and professional style
-plt.rcParams.update({'font.size': 12, 'figure.dpi': 500}) 
-# Path to the CSV file
-file_path = "C:/Users/jackm/OneDrive - Queen's University/Queen's Engineering/Fourth Year/ENPH 453/Advanced-Engineering-Physics-Lab/Semiconductor_Bandgap_Measurements/Feb13_Testing/Wafer_Test_Constant_Temp.csv"
 
+plt.style.use('seaborn-whitegrid')  # A clean and professional style
+plt.rcParams.update({'font.size': 12, 'figure.dpi': 300}) 
+
+# Path to the CSV file
+file_path = 'Semiconductor_Bandgap_Measurements\Mar05_Testing\Temp_Sweep_1_Sample_2.csv'
 # Read the CSV, skipping the initial incorrect header and split the 'Temperature,Resistance' combined column
 data = pd.read_csv(file_path, skiprows=1)
 
@@ -25,7 +26,6 @@ plt.xlabel('Temperature (K)')
 plt.ylabel('Resistance (Ohms)')
 plt.grid(True)
 plt.show()
-
 
 mean_resistance = data['Resistance'].mean()
 median_resistance = data['Resistance'].median()
